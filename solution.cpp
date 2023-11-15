@@ -1,25 +1,23 @@
-class Solution {
-public:
-    int searchInsert(vector<int>& nums, int target) {
-        int low=0;
-        int high=nums.size();
-        int mid;
-        if(target>nums[high-1]){
-            return high;
-        }
-        while(low<=high){
-              mid=(low+high)/2;
-            if(nums[mid]==target){  
-                return mid;
-            }
-          
-            if(target<nums[mid]){     
-            high=mid-1;    
-            }else{
-            low=mid+1;        
-            }
-          
-        }
-         return  low;   
-    }
-};
+-> m
+-> i
+not match, reinitialize window start to next index of m. 
+That is "i" from the word "mississipi"
+
+-> i s s i s
+-> i s s i p
+s and p mismatch
+
+so, reinitialize the window's start
+-> s
+-> i
+not match
+
+reinitialize
+-> s
+-> i
+not match
+
+reinitialize
+-> i s s i p
+-> i s s i p
+this time it was a match!
